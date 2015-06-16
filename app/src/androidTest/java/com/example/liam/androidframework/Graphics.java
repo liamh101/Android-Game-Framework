@@ -43,6 +43,6 @@ public interface Graphics {
     //get height of screen that's being rendered
     public int getHeight();
 
-    //draw ARGB file format 
+    //draw ARGB file format
     public void drawARGB(int i, int j, int k, int l);
 }
