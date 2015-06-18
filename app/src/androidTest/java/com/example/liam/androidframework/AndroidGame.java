@@ -20,13 +20,13 @@ import com.example.liam.androidframework.framework.Screen;
  * Created by Liam on 17/06/2015.
  */
 public abstract class AndroidGame extends Activity implements Game {
-    //AndroidFastRenderView renderView;
-    Graphics graphics;
-    Audio audio;
-    Input input;
-    FileIO fileIO;
-    Screen screen;
-    PowerManager.WakeLock wakeLock;
+    private AndroidFastRenderView renderView;
+    private Graphics graphics;
+    private Audio audio;
+    private Input input;
+    private FileIO fileIO;
+    private Screen screen;
+    private PowerManager.WakeLock wakeLock;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -48,7 +48,7 @@ public abstract class AndroidGame extends Activity implements Game {
         float scaleY = (float) frameBufferHeight / getWindowManager().getDefaultDisplay().getHeight();
 
         //Instigate variables here
-        //renderView =
+        renderView = new AndroidFastRenderView(this,frameBuffer);
 
 
 
@@ -63,7 +63,7 @@ public abstract class AndroidGame extends Activity implements Game {
         super.onResume();
         wakeLock.acquire();
         screen.resume();
-        //Add renderview
+        renderView.resume();
     }
 
     @Override
@@ -71,7 +71,7 @@ public abstract class AndroidGame extends Activity implements Game {
         //Pause game and all activity
         super.onPause();
         wakeLock.release();
-        //Add renderview
+        renderView.pause();
         screen.pause();
 
         if(isFinishing())
