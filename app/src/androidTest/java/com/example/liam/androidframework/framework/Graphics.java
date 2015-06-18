@@ -16,16 +16,13 @@ public interface Graphics {
     public Image newImage(String fileName, ImageFormat format);
 
     //Clear the screen of currently rendered items
-    public void clearScreen();
-
-    //Draw default line on screen
-    public void drawLine();
+    public void clearScreen(int colour);
 
     //Draw line with custom values on the screen
-    public void drawLine(int x, int y, int x2, int y2, int color);
+    public void drawLine(int x, int y, int x2, int y2, int colour);
 
     //Draw a rectangle with custom values on the screen
-    public void drawRect(int x, int y, int width, int height, int color);
+    public void drawRect(int x, int y, int width, int height, int colour);
 
     //Draw a image variable on the screen with more custombility
     public void drawImage(Image image, int x, int y, int srcX, int srcY,

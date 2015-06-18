@@ -58,4 +58,23 @@ public class AndroidImage implements Image {
     public void dispose(){
         bitmap.recycle();
     }
+
+    /**Returns bitmap image stored in memeory
+     *
+     * @return bitmap image type rendered in game
+     */
+    public Bitmap getBitmap(){
+        return  bitmap;
+    }
+
+    /**set the image that will be used in the game
+     *
+     * @param bitmap bitmap image type
+     */
+    public void setBitmap(Bitmap bitmap){
+        this.bitmap = bitmap;
+    }
+
+
+
 }
