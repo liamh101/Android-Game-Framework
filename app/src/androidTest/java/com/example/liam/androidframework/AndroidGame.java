@@ -51,6 +51,13 @@ public abstract class AndroidGame extends Activity implements Game {
 
         //Instigate variables here
         renderView = new AndroidFastRenderView(this,frameBuffer);
+        graphics = new AndroidGraphics(getAssets(), frameBuffer);
+        fileIO = new AndroidFileIO(this);
+        audio = new AndroidAudio(this);
+       // input = new In
+        screen = getInitScreen();
+        setContentView(renderView);
+
 
 
 
