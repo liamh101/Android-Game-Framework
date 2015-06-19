@@ -17,6 +17,8 @@ import java.io.OutputStream;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Manages Applications File system for grabbing elements to store into memory
  */
 public class AndroidFileIO implements FileIO {
 

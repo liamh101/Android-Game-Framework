@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by Liam on 19/06/2015.
+ *
+ * Interface to set up basic methods to be used in any Touch management system
  */
 public interface TouchHandler extends View.OnTouchListener {
 

@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * Created by Liam on 19/06/2015.
+ *
+ * Implements single touch input within the game
  */
 public class SingleTouchHandler implements TouchHandler {
 

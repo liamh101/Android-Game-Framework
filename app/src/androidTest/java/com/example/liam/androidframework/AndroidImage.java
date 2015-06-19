@@ -7,6 +7,8 @@ import com.example.liam.androidframework.framework.Image;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Image management system so it's easier to manage graphical elements in the game
  */
 public class AndroidImage implements Image {
 

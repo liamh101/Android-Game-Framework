@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * Created by Liam on 19/06/2015.
+ *
+ * Manages muli-touch input within the game
  */
 public class MultiTouchHandler implements TouchHandler {
     private static final int MAX_TOUCHPOINTS = 10;

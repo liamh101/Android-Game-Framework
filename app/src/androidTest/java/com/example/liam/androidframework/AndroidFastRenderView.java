@@ -8,6 +8,8 @@ import android.view.SurfaceView;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Quickly render images to be displayed onto the screen
  */
 public class AndroidFastRenderView extends SurfaceView implements Runnable  {
 

@@ -6,6 +6,8 @@ import com.example.liam.androidframework.framework.Sound;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Manage sound within the game
  */
 public class AndroidSound implements Sound {
 

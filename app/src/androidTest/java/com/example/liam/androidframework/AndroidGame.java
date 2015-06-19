@@ -18,6 +18,8 @@ import com.example.liam.androidframework.framework.Screen;
 
 /**
  * Created by Liam on 17/06/2015.
+ *
+ * The main game element that takes each individual part of the framework and compines them together to work with each other
  */
 public abstract class AndroidGame extends Activity implements Game {
     private AndroidFastRenderView renderView;

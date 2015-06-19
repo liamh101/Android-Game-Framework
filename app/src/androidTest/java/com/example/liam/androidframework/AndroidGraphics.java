@@ -15,6 +15,8 @@ import java.io.InputStream;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Manage graphical elements for the game to be later rendered on the screen
  */
 public class AndroidGraphics implements Graphics {
 

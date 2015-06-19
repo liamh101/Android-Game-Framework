@@ -14,6 +14,8 @@ import java.io.IOException;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Creates audio variables based on either being game sounds or music for a video game.
  */
 public class AndroidAudio implements Audio {
     private AssetManager assets;
@@ -47,7 +49,7 @@ public class AndroidAudio implements Audio {
 
     }
 
-    /**Loads filewithin application and adds it in memory within the soundPool for easy access by the application
+    /**Loads file within application and adds it in memory within the soundPool for easy access by the application
      *
      * @param file what the sound file you want to use is called
      * @return returns the new sound file with a id and it's associated soundpool;

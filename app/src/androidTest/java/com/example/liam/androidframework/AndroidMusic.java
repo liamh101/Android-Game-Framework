@@ -9,6 +9,8 @@ import java.io.IOException;
 
 /**
  * Created by Liam on 18/06/2015.
+ *
+ * Manage music within the game
  */
 public class AndroidMusic implements Music, MediaPlayer.OnCompletionListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnVideoSizeChangedListener{
     private MediaPlayer mediaPlayer;
