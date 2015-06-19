@@ -165,7 +165,7 @@ public class AndroidMusic implements Music, MediaPlayer.OnCompletionListener, Me
         }
     }
 
-    //UNUSED METHODS 
+    //UNUSED METHODS
     @Override
     public void onSeekComplete(MediaPlayer mp) {
 
