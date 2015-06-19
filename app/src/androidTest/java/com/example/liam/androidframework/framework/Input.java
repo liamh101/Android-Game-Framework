@@ -29,10 +29,10 @@ public interface Input {
     public boolean isTouchDown(int pointer);
 
     //Get X position at which the screen is being touched
-    public int getTouchX();
+    public int getTouchX(int pointer);
 
     //Get Y position at which the screen is being touched
-    public int getTouchY();
+    public int getTouchY(int pointer);
 
     //List of recent touch events
     public List<TouchEvent> getTouchEvents();
