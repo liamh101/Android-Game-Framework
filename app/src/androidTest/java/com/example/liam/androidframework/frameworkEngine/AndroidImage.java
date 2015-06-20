@@ -54,6 +54,12 @@ public class AndroidImage implements Image {
         return format;
     }
 
+    /** Change format type of the image. This should only be used for tested and used at your own risk.
+     *
+     * @param format ImageFormat type and will be used to set the format of the image (e.g. RGB)
+     */
+    public void setFormat(Graphics.ImageFormat format) { this.format = format; }
+
     /**Destorys image in memory.
      *
      */
