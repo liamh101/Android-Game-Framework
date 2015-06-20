@@ -167,6 +167,41 @@ public class AndroidMusic implements Music, MediaPlayer.OnCompletionListener, Me
         }
     }
 
+    //GETTER AND SETTER METHODS
+
+    /** Get the media player currently being used to play the music track. Use only when necessary.
+     *
+     * @return MediaPlayer used to play music track
+     */
+    public MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
+
+    /** Set the media player to play the music track
+     *
+     * @param mediaPlayer MediaPlayer variable type
+     */
+    public void setMediaPlayer(MediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
+    }
+
+    /**Returns whether or no the music file is ready to be played yet
+     *
+     * @return boolean type, if true, music track can be played, else music track cannot be played
+     */
+    public boolean isPrepared() {
+        return isPrepared;
+    }
+
+    /**Set whether the music player is ready to play the music track or not. Only do this
+     * for debugging (Stop and Play methods do this for you)
+     *
+     * @param isPrepared boolean variable
+     */
+    public void setIsPrepared(boolean isPrepared) {
+        this.isPrepared = isPrepared;
+    }
+
     //UNUSED METHODS
     @Override
     public void onSeekComplete(MediaPlayer mp) {
