@@ -32,7 +32,6 @@ public class AndroidSound implements Sound {
     @Override
     public void play(float volume) {
         soundPool.play(soundID, volume, volume,0, 0, 1);
-
     }
 
     /** Remove the sound file from the soundpool and free the memory making it unusable to the app until you reload the sound file back into the SoundPool .
@@ -41,5 +40,39 @@ public class AndroidSound implements Sound {
     @Override
     public void dispose() {
         soundPool.unload(soundID);
+    }
+
+    //GETTER AND SETTER METHODS
+
+    /**Returns the ID assigned to sound click when created
+     *
+     * @return int SoundID
+     */
+    public int getSoundID() {
+        return soundID;
+    }
+
+    /**Set the ID of the sound clip, do not recommend doing this.
+     *
+     * @param soundID int of what you want the ID to be
+     */
+    public void setSoundID(int soundID) {
+        this.soundID = soundID;
+    }
+
+    /** Returns the collection of sound clips that the current sound clip is stored
+     *
+     * @return SoundPool of sound clips
+     */
+    public SoundPool getSoundPool() {
+        return soundPool;
+    }
+
+    /** Change where the current sound clip is stored.
+     *
+     * @param soundPool which SoundPool to put the sound clip into
+     */
+    public void setSoundPool(SoundPool soundPool) {
+        this.soundPool = soundPool;
     }
 }
