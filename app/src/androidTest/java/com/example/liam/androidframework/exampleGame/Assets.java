@@ -7,7 +7,7 @@ import com.example.liam.androidframework.framework.Music;
  * Created by Liam on 21/06/2015.
  */
 public class Assets {
-    private static Image background, enemy1, enemy2, enemy3, player1, player2, player3, tileDirt, tileGrassDirt, tileWater, tileSpike;
+    private static Image background, enemy1, enemy2, enemy3, player1, player2, player3, tileDirt, tileGrassDirt, tileWater, tileSpike, loading;
     private static Music music;
 
 
@@ -17,6 +17,14 @@ public class Assets {
         music.setVolume(0.85f);
         music.setLooping(false);
         music.play();
+    }
+
+    public static Image getLoading() {
+        return loading;
+    }
+
+    public static void setLoading(Image loading) {
+        Assets.loading = loading;
     }
 
     public static Image getBackground() {
