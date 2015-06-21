@@ -23,6 +23,7 @@ public interface Input {
 
         //multiple points of at which the screen is being touched
         public int pointer;
+
     }
 
     //Is the screen currently being touched?
@@ -36,5 +37,7 @@ public interface Input {
 
     //List of recent touch events
     public List<TouchEvent> getTouchEvents();
+
+
 
 }
