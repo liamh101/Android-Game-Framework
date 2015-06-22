@@ -149,4 +149,20 @@ public class GameScreen extends Screen {
     public void backButton() {
 
     }
+
+    public static Background getBg1() {
+        return bg1;
+    }
+
+    public static void setBg1(Background bg1) {
+        GameScreen.bg1 = bg1;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        GameScreen.player = player;
+    }
 }

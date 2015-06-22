@@ -43,13 +43,13 @@ public class Enemy {
 		speedX = (byte) (bg.getSpeedX() * 5 + movementSpeed);
 		hitbox.set(centerX - 49, centerY - 49, 64, 64);
 		
-		if(hitbox.intersects(Player.getCheck())){
+		if(hitbox.intersect(Player.getCheck())){
 			checkCollision();
 		}
 	}
 	
 	private void checkCollision(){
-		if(hitbox.intersects(Player.getBottom())|| hitbox.intersects(Player.getHead()) || hitbox.intersects(Player.getLeftHand()) || hitbox.intersects(Player.getRightHand())){
+		if(hitbox.intersect(Player.getBottom())|| hitbox.intersect(Player.getHead()) || hitbox.intersect(Player.getLeftHand()) || hitbox.intersect(Player.getRightHand())){
 			System.out.println("collision");
 		}
 	}
@@ -58,11 +58,11 @@ public class Enemy {
 		
 		if (centerX < -95 || centerX > 810) 
 			movementSpeed = 0;
-		else if (Math.abs(bootloader.getPlayer().getCenterX() - centerX) < 5)
+		else if (Math.abs(GameScreen.getPlayer().getCenterX() - centerX) < 5)
 			movementSpeed = 0;
 		else {
 			
-			if(bootloader.getPlayer().getCenterX() >= centerX)
+			if(GameScreen.getPlayer().getCenterX() >= centerX)
 				movementSpeed = 3;
 			else
 				movementSpeed = -2;

@@ -25,8 +25,8 @@ public class Tile {
 		tileX = x * 40; 
 		tileY = y * 40;
 		
-		player = bootloader.getPlayer();
-		bg = bootloader.getBg1();
+		player = GameScreen.getPlayer();
+		bg = GameScreen.getBg1();
 		
 		type = typeInt;
 		
