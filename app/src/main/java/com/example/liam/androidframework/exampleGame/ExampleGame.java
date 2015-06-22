@@ -2,7 +2,7 @@ package com.example.liam.androidframework.exampleGame;
 
 import android.util.Log;
 
-import com.example.liam.androidframework.R;
+
 import com.example.liam.androidframework.framework.Screen;
 import com.example.liam.androidframework.frameworkEngine.AndroidGame;
 

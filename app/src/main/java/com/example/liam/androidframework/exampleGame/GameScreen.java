@@ -173,4 +173,20 @@ public class GameScreen extends Screen {
     public static void setPlayer(Player player) {
         GameScreen.player = player;
     }
+
+    public static int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        GameScreen.score = score;
+    }
+
+    public static FlyingEnemy getEn1() {
+        return en1;
+    }
+
+    public static void setEn1(FlyingEnemy en1) {
+        GameScreen.en1 = en1;
+    }
 }

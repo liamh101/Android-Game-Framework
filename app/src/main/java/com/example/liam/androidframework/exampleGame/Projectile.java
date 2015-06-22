@@ -72,9 +72,9 @@ public class Projectile {
 	}
 	
 	private void checkCollision(){
-		if(hitbox.intersects(bootloader.getFlyingEmemy().getHitbox()) && !enemy){
+		if(hitbox.intersect(GameScreen.getEn1().getHitbox()) && !enemy){
 			
-			Enemy en = bootloader.getFlyingEmemy();
+			Enemy en = GameScreen.getEn1();
 			visible = false;
 			
 			if(en.getCurrentHealth() > 0){
@@ -82,10 +82,10 @@ public class Projectile {
 			}
 			if(en.getCurrentHealth() == 0){
 				en.setCenterX(-100);
-				bootloader.setScore( bootloader.getScore()+5);
+				GameScreen.setScore( GameScreen.getScore()+5);
 			}
-			
-			bootloader.setScore((bootloader.getScore() + 1));
+
+			GameScreen.setScore((GameScreen.getScore() + 1));
 		}
 	}
 
