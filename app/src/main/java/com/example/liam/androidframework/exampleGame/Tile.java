@@ -2,7 +2,8 @@ package com.example.liam.androidframework.exampleGame;
 
 import android.graphics.Rect;
 
-import java.awt.Image;
+import com.example.liam.androidframework.framework.Image;
+
 
 
 public class Tile {
@@ -32,26 +33,26 @@ public class Tile {
 		r = new Rect();
 		
 		if (type == 1){
-			tileImage = bootloader.getDirtTile();
+			tileImage = Assets.getTileDirt();
 			pass = 0;
 			damage =0;
 		}
 		else if (type == 2){
-			tileImage = bootloader.getGrassTile();
+			tileImage = Assets.getTileGrassDirt();
 			pass = 0;
 			damage =0; 
 		}
 		else if (type == 3){
-			tileImage = bootloader.getOceanTile();
+			tileImage = Assets.getTileWater();
 			pass = 1;
 			damage = 100;
 		}
 		else if (type == 4){
-			tileImage = bootloader.getSpikeTileFloor();
+			tileImage =Assets.getTileSpike();
 			pass = 1;
 			//damage =100;
 		}
-		else if (type == 5){
+		/*else if (type == 5){
 			tileImage = bootloader.getSpikeTileCeiling();
 			pass = 0;
 			//damage =100;
@@ -60,7 +61,7 @@ public class Tile {
 			tileImage = bootloader.getDecoGrassTile();
 			pass = 1;
 			damage = 0;
-		}
+		}*/
 		else {
 			type = 0;
 			pass = 1;
