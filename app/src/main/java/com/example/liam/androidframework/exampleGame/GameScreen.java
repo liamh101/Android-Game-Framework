@@ -158,6 +158,14 @@ public class GameScreen extends Screen {
         GameScreen.bg1 = bg1;
     }
 
+    public static Background getBg2() {
+        return bg2;
+    }
+
+    public static void setBg2(Background bg2) {
+        GameScreen.bg2 = bg2;
+    }
+
     public static Player getPlayer() {
         return player;
     }

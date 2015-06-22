@@ -60,8 +60,8 @@ public class Player {
 		rightHand = new Rect(0,0,0,0);
 		check = new Rect (0,0,0,0);
 		
-		bg1 = bootloader.getBg1();
-		bg2 = bootloader.getBg2();
+		bg1 = GameScreen.getBg1();
+		bg2 = GameScreen.getBg2();
 	}
 	
 	/**Custom constructor that give custom location, speed and background.
@@ -374,10 +374,10 @@ public class Player {
         }
         
         bottom.set(centerX - 40, centerY - 10, 20, 10);
-        head.set(centerX - 35, centerY - 60,12,12);
+        head.set(centerX - 35, centerY - 60, 12, 12);
         leftHand.set(centerX - 50, centerY - 42, 10, 20);
-        rightHand.set(centerX - 16, centerY - 42,8,20);
-        check.set(centerX - 110 , centerY - 110, 180, 180);
+        rightHand.set(centerX - 16, centerY - 42, 8, 20);
+        check.set(centerX - 110, centerY - 110, 180, 180);
         
 	}
 	
