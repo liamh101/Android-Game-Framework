@@ -1,6 +1,6 @@
 package com.example.liam.androidframework.exampleGame;
 
-import java.awt.Rectangle;
+import android.graphics.Rect;
 import java.util.ArrayList;
 
 /** Class is make to control the player character sprite within the game.
@@ -17,7 +17,7 @@ public class Player {
 	//Array of projectiles (bullets)
 	private ArrayList<Projectile> projectiles;
 	
-	private static Rectangle bottom,head,leftHand,rightHand,check;
+	private static Rect bottom,head,leftHand,rightHand,check;
 
 	
 	//Location and speed variables
@@ -54,11 +54,11 @@ public class Player {
 		ducked = false;
 		readyToFire = true;
 		
-		bottom = new Rectangle(0,0,0,0);
-		head = new Rectangle(0,0,0,0);
-		leftHand = new Rectangle(0,0,0,0);
-		rightHand = new Rectangle(0,0,0,0);
-		check = new Rectangle (0,0,0,0);
+		bottom = new Rect(0,0,0,0);
+		head = new Rect(0,0,0,0);
+		leftHand = new Rect(0,0,0,0);
+		rightHand = new Rect(0,0,0,0);
+		check = new Rect (0,0,0,0);
 		
 		bg1 = bootloader.getBg1();
 		bg2 = bootloader.getBg2();
@@ -84,11 +84,11 @@ public class Player {
 		this.bg1 = bg1;
 		this.bg2 = bg2;
 		
-		bottom = new Rectangle(0,0,0,0);
-		head = new Rectangle(0,0,0,0);
-		leftHand = new Rectangle(0,0,0,0);
-		rightHand = new Rectangle(0,0,0,0);
-		check = new Rectangle (0,0,0,0);
+		bottom = new Rect(0,0,0,0);
+		head = new Rect(0,0,0,0);
+		leftHand = new Rect(0,0,0,0);
+		rightHand = new Rect(0,0,0,0);
+		check = new Rect(0,0,0,0);
 		
 		lookup = false;
 		movingLeft = false;
@@ -294,43 +294,43 @@ public class Player {
 		return projectiles;
 	}
 	
-	public static Rectangle getBottom() {
+	public static Rect getBottom() {
 		return bottom;
 	}
 
-	public static void setBottom(Rectangle rect) {
+	public static void setBottom(Rect rect) {
 		Player.bottom = rect;
 	}
 
-	public static Rectangle getHead() {
+	public static Rect getHead() {
 		return head;
 	}
 
-	public static void setHead(Rectangle head) {
+	public static void setHead(Rect head) {
 		Player.head = head;
 	}
 
-	public static Rectangle getLeftHand() {
+	public static Rect getLeftHand() {
 		return leftHand;
 	}
 
-	public static void setLeftHand(Rectangle leftHand) {
+	public static void setLeftHand(Rect leftHand) {
 		Player.leftHand = leftHand;
 	}
 
-	public static Rectangle getRightHand() {
+	public static Rect getRightHand() {
 		return rightHand;
 	}
 
-	public static void setRightHand(Rectangle rightHand) {
+	public static void setRightHand(Rect rightHand) {
 		Player.rightHand = rightHand;
 	}
 	
-	public static Rectangle getCheck() {
+	public static Rect getCheck() {
 		return check;
 	}
 
-	public static void setCheck(Rectangle check) {
+	public static void setCheck(Rect check) {
 		Player.check = check;
 	}
 
@@ -373,11 +373,11 @@ public class Player {
             centerX = 61;
         }
         
-        bottom.setRect(centerX - 40, centerY - 10, 20, 10);
-        head.setRect(centerX - 35, centerY - 60,12,12);
-        leftHand.setRect(centerX - 50, centerY - 42, 10, 20);
-        rightHand.setRect(centerX - 16, centerY - 42,8,20);
-        check.setRect(centerX - 110 , centerY - 110, 180, 180);
+        bottom.set(centerX - 40, centerY - 10, 20, 10);
+        head.set(centerX - 35, centerY - 60,12,12);
+        leftHand.set(centerX - 50, centerY - 42, 10, 20);
+        rightHand.set(centerX - 16, centerY - 42,8,20);
+        check.set(centerX - 110 , centerY - 110, 180, 180);
         
 	}
 	

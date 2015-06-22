@@ -1,6 +1,6 @@
 package com.example.liam.androidframework.exampleGame;
 
-import java.awt.Rectangle;
+import android.graphics.Rect;
 import java.util.ArrayList;
 
 /**Superclass for managing the all enemy characters
@@ -14,7 +14,7 @@ public class Enemy {
 	private byte speedX, movementSpeed;
 	private ArrayList<Projectile> projectiles;
 	private Background bg;
-	private Rectangle hitbox; 
+	private Rect hitbox;
 	
 	
 	public Enemy(){
@@ -24,7 +24,7 @@ public class Enemy {
 		centerY = 0;
 		maxHealth = 100; 
 		currentHealth = 100;
-		hitbox = new Rectangle(0,0,0,0);
+		hitbox = new Rect(0,0,0,0);
 	}
 	
 	public void restart(){
@@ -41,7 +41,7 @@ public class Enemy {
 		centerX += speedX;
 		speedX = (byte) (bg.getSpeedX()*5);
 		speedX = (byte) (bg.getSpeedX() * 5 + movementSpeed);
-		hitbox.setBounds(centerX-49 , centerY-49, 64, 64);
+		hitbox.set(centerX - 49, centerY - 49, 64, 64);
 		
 		if(hitbox.intersects(Player.getCheck())){
 			checkCollision();
@@ -142,12 +142,12 @@ public class Enemy {
 		this.bg = bg;
 	}
 	
-	public Rectangle getHitbox() {
+	public Rect getHitbox() {
 		return hitbox;
 	}
 
 
-	public void setHitbox(Rectangle hitbox) {
+	public void setHitbox(Rect hitbox) {
 		this.hitbox = hitbox;
 	}
 

@@ -1,7 +1,8 @@
 package com.example.liam.androidframework.exampleGame;
 
+import android.graphics.Rect;
+
 import java.awt.Image;
-import java.awt.Rectangle;
 
 
 public class Tile {
@@ -11,7 +12,7 @@ public class Tile {
 	private Image tileImage;
 	private Player player;
 	private Background bg; 
-	private Rectangle r;
+	private Rect r;
 	
 	/**Custom Constructor that gives a tile within a 2D array a image to render on screen.
 	 * 
@@ -28,7 +29,7 @@ public class Tile {
 		
 		type = typeInt;
 		
-		r = new Rectangle();
+		r = new Rect();
 		
 		if (type == 1){
 			tileImage = bootloader.getDirtTile();
@@ -74,7 +75,7 @@ public class Tile {
 	public void update() { 
 		speedX = (byte) (bg.getSpeedX()*5);
 		tileX += speedX;
-		r.setBounds(tileX, tileY,40,40);
+		r.set(tileX, tileY, 40, 40);
 		
 		if( r.intersects(Player.getCheck()) &&  type != 0){
 			checkVerticalCollision(Player.getBottom(), Player.getHead());
@@ -106,7 +107,7 @@ public class Tile {
 		this.tileImage = tileImage;
 	}
 	
-	public void checkVerticalCollision(Rectangle rbot, Rectangle rtop){
+	public void checkVerticalCollision(Rect rbot, Rect rtop){
 		if(pass == 0){		
 			if(rtop.intersects(r)){
 			
@@ -121,7 +122,7 @@ public class Tile {
 			}
 		}
 	}
-	public void checkSideCollision(Rectangle rleft, Rectangle rright){
+	public void checkSideCollision(Rect rleft, Rect rright){
 		if(pass == 0 ) {
 			
 			if(rleft.intersects(r)) {
