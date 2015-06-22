@@ -13,7 +13,7 @@ public class FlyingEnemy extends Enemy {
 	public FlyingEnemy(int centerX, int centerY) {
 		setCenterX(centerX);
 		setCenterY(centerY);
-		setBg(bootloader.getBg1());
+		setBg(GameScreen.getBg1());
 		
 		savedX = centerX;
 		savedY = centerY;
