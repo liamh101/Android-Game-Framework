@@ -78,7 +78,7 @@ public class Tile {
 		tileX += speedX;
 		r.set(tileX, tileY, 40, 40);
 		
-		if( r.intersects(Player.getCheck()) &&  type != 0){
+		if( r.intersect(Player.getCheck()) &&  type != 0){
 			checkVerticalCollision(Player.getBottom(), Player.getHead());
 			checkSideCollision(Player.getLeftHand(), Player.getRightHand());
 		}
@@ -110,11 +110,11 @@ public class Tile {
 	
 	public void checkVerticalCollision(Rect rbot, Rect rtop){
 		if(pass == 0){		
-			if(rtop.intersects(r)){
+			if(rtop.intersect(r)){
 			
 			}
 		
-			if(rbot.intersects(r)){
+			if(rbot.intersect(r)){
 				player.setJumped(false);
 				player.setSpeedY((byte) 0);
 				player.setCenterY(tileY);
@@ -126,7 +126,7 @@ public class Tile {
 	public void checkSideCollision(Rect rleft, Rect rright){
 		if(pass == 0 ) {
 			
-			if(rleft.intersects(r)) {
+			if(rleft.intersect(r)) {
 				System.out.println("in left side intersect");
 				player.setCenterX(tileX + 88);
 				player.setSpeedX((byte) 0);
@@ -137,7 +137,7 @@ public class Tile {
 				player.setSpeedX(0);
 			} */ 
 			
-			if(rright.intersects(r)) {
+			if(rright.intersect(r)) {
 				System.out.println("in right side intersect");
 				player.setCenterX(tileX + 10);
 				player.setSpeedX((byte) 0);
