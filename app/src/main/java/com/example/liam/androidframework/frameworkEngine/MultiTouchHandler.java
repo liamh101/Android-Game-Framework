@@ -34,6 +34,7 @@ public class MultiTouchHandler implements TouchHandler {
      * @param scaleY the y scale at which thre game view is compared to the view
      */
     public MultiTouchHandler(View view, float scaleX, float scaleY ){
+        isTouched = new boolean[MAX_TOUCHPOINTS];
         touchX = new int[MAX_TOUCHPOINTS];
         touchY = new int[MAX_TOUCHPOINTS];
         id = new int[MAX_TOUCHPOINTS];

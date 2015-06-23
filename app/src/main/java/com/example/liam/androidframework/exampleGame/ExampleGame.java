@@ -60,6 +60,16 @@ public class ExampleGame extends AndroidGame {
         return sb.toString();
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+    }
+
     public static String getMap() {
         return map;
     }

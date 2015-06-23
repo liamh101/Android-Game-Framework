@@ -107,7 +107,15 @@ public class Tile {
 	public void setTileImage(Image tileImage) {
 		this.tileImage = tileImage;
 	}
-	
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public void checkVerticalCollision(Rect rbot, Rect rtop){
 		if(pass == 0){		
 			if(rtop.intersect(r)){

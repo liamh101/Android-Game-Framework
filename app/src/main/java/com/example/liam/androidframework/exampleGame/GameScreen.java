@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.example.liam.androidframework.framework.Game;
+import com.example.liam.androidframework.framework.Graphics;
 import com.example.liam.androidframework.framework.Image;
 import com.example.liam.androidframework.framework.Input;
 import com.example.liam.androidframework.framework.Screen;
@@ -112,22 +113,48 @@ public class GameScreen extends Screen {
     public void update(float deltaTime) {
         List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
 
-        if(state == GameState.Ready){
+        if(state == GameState.Ready)
+            updateReady(touchEvents);
 
-
-        }
 
 
     }
 
     public void updateReady(List<Input.TouchEvent> touchEvents){
+        if(touchEvents.size() > 0)
+            state = GameState.Running;
+
 
 
     }
 
     @Override
     public void paint(float deltaTime) {
+        Graphics g = game.getGraphics();
 
+        g.drawImage(Assets.getBackground(), bg1.getBgX(), bg1.getBgY());
+        g.drawImage(Assets.getBackground(), bg2.getBgX(), bg2.getBgY());
+        paintTiles(g);
+
+        g.drawImage(currentSprite, player.getCenterX(), player.getCenterY());
+
+        if(state == GameState.Ready)
+            drawReadyUI();
+    }
+
+    private void paintTiles(Graphics g){
+        for(int i = 0; i < tilearray.size(); i++){
+            Tile t = (Tile) tilearray.get(i);
+            if(t.getType() == 0)
+                g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
+        }
+    }
+
+    private void drawReadyUI(){
+        Graphics g = game.getGraphics();
+
+        g.drawARGB(155,0,0,0);
+        g.drawString("Tap to Start", 400, 240, paint);
     }
 
     @Override
