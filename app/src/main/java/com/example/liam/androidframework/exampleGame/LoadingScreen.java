@@ -19,7 +19,7 @@ public class LoadingScreen extends Screen {
         Assets.setMenu(g.newImage("menu.jpg", Graphics.ImageFormat.RGB565));
         Assets.setBackground(g.newImage("background.png", Graphics.ImageFormat.RGB565));
 
-        Assets.setPlayer1(g.newImage("player1.png", Graphics.ImageFormat.ARGB4444));
+        Assets.setPlayer1(g.newImage("player.png", Graphics.ImageFormat.ARGB4444));
         Assets.setPlayer2(g.newImage("player2.png", Graphics.ImageFormat.ARGB4444));
         Assets.setPlayer3(g.newImage("player3.png", Graphics.ImageFormat.ARGB4444));
         Assets.setPlayerJ(g.newImage("playerJ.png", Graphics.ImageFormat.ARGB4444));
@@ -32,7 +32,7 @@ public class LoadingScreen extends Screen {
         Assets.setTileDirt(g.newImage("tile1.png", Graphics.ImageFormat.RGB565));
         Assets.setTileGrassDirt(g.newImage("tile2.png", Graphics.ImageFormat.RGB565));
         Assets.setTileWater(g.newImage("tile4.png", Graphics.ImageFormat.RGB565));
-        Assets.setTileSpike(g.newImage("spike.png", Graphics.ImageFormat.ARGB4444));
+        Assets.setTileSpike(g.newImage("Spike.png", Graphics.ImageFormat.ARGB4444));
 
         game.setScreen(new MainMenuScreen(game));
     }

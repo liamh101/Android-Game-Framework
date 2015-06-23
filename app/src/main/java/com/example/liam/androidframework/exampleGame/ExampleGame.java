@@ -34,7 +34,7 @@ public class ExampleGame extends AndroidGame {
         InputStream is = getResources().openRawResource(R.raw.test1);
         map = convertStreamToString(is);
 
-        return null;
+        return new SplashLoadingScreen(this);
     }
 
     private static String convertStreamToString(InputStream is){
