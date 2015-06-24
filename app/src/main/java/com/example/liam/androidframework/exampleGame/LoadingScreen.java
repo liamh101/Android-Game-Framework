@@ -16,8 +16,8 @@ public class LoadingScreen extends Screen {
     public void update(float deltaTime) {
         Graphics g = game.getGraphics();
 
-        Assets.setMenu(g.newImage("menu.jpg", Graphics.ImageFormat.ARGB8888));
-        Assets.setBackground(g.newImage("background.png", Graphics.ImageFormat.ARGB8888));
+        Assets.setMenu(g.newImage("menu.bmp", Graphics.ImageFormat.ARGB8888));
+        Assets.setBackground(g.newImage("background.bmp", Graphics.ImageFormat.ARGB8888));
 
         Assets.setPlayer1(g.newImage("player.png", Graphics.ImageFormat.ARGB8888));
         Assets.setPlayer2(g.newImage("player2.png", Graphics.ImageFormat.ARGB8888));
