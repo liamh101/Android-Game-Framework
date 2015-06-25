@@ -3,6 +3,8 @@ package com.example.liam.androidframework.frameworkEngine;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.nfc.Tag;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -27,7 +29,7 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable  {
     public AndroidFastRenderView(AndroidGame game, Bitmap frameBuffer){
         super(game);
         renderThread = null;
-        running = true;
+        running = false;
         this.game = game;
         this.frameBuffer = frameBuffer;
         this.holder = getHolder();
@@ -51,7 +53,7 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable  {
         long startTime = System.nanoTime();
         //If game isn't paused
         while(running){
-            if(holder.getSurface().isValid())
+            if(!holder.getSurface().isValid())
                 continue;
 
             //Deltatime used to keep consistent game movement without making the game unplayable
@@ -71,7 +73,9 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable  {
             canvas.getClipBounds(dstRect);
             canvas.drawBitmap(frameBuffer, null, dstRect, null);
             holder.unlockCanvasAndPost(canvas);
+            Log.d("Test","Running game");
         }
+        Log.d("Test","Out of the Loop");
     }
 
     /**Stops activity of game used for when the player has to the phone for activities outside the game
