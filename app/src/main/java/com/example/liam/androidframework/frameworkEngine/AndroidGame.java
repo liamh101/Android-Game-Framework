@@ -41,8 +41,13 @@ public abstract class AndroidGame extends Activity implements Game {
         boolean isPortrait = getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
 
         //If isPortrait is true then use first value, else use second value.
-        int frameBufferHeight = isPortrait ? 480 : 800;
-        int frameBufferWidth = isPortrait ? 800 : 480;
+       // int frameBufferHeight = isPortrait ? 480 : 800;
+        //int frameBufferWidth = isPortrait ? 800 : 480;
+
+
+        //As game stays in same view type, force screen size
+        int frameBufferHeight =  480;
+        int frameBufferWidth =  800;
 
         Bitmap frameBuffer = Bitmap.createBitmap(frameBufferWidth, frameBufferHeight, Bitmap.Config.RGB_565);
 
