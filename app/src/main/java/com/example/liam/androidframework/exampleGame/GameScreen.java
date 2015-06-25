@@ -189,8 +189,14 @@ public class GameScreen extends Screen {
         g.drawImage(Assets.getBackground(), bg2.getBgX(), bg2.getBgY());
         paintTiles(g);
 
+        g.drawRect(Player.getCheck(), Color.BLUE);
         g.drawImage(currentSprite, player.getCenterX(), player.getCenterY());
-        //g.drawRect(player.getCenterX(), player.getCenterY(), player.getCenterX() + 120, player.getCenterY() +180, Color.WHITE);
+        g.drawRect(Player.getBottom(), Color.RED);
+        g.drawRect(Player.getLeftHand(), Color.RED);
+        g.drawRect(Player.getRightHand(), Color.RED);
+        g.drawRect(Player.getHead(), Color.RED);
+
+
 
 
         if(state == GameState.Ready)

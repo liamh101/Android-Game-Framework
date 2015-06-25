@@ -73,7 +73,7 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable  {
             canvas.getClipBounds(dstRect);
             canvas.drawBitmap(frameBuffer, null, dstRect, null);
             holder.unlockCanvasAndPost(canvas);
-            Log.d("Test","Running game");
+            //Log.d("Test","Running game");
         }
         Log.d("Test","Out of the Loop");
     }

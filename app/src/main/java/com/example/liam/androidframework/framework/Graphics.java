@@ -1,6 +1,7 @@
 package com.example.liam.androidframework.framework;
 
 import android.graphics.Paint;
+import android.graphics.Rect;
 
 /**
  * Created by Liam on 16/06/2015.
@@ -23,6 +24,9 @@ public interface Graphics {
 
     //Draw a rectangle with custom values on the screen
     public void drawRect(int x, int y, int width, int height, int colour);
+
+    //Draw a rectangle with a prebuilt Rectangle
+    public void drawRect(Rect r, int colour);
 
     //Draw a image variable on the screen with more custombility
     public void drawImage(Image image, int x, int y, int srcX, int srcY,

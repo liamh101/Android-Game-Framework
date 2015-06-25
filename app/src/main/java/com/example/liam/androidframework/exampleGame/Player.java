@@ -2,6 +2,8 @@ package com.example.liam.androidframework.exampleGame;
 
 import android.graphics.Rect;
 
+import com.example.liam.androidframework.framework.Screen;
+
 import java.util.ArrayList;
 
 /** Class is make to control the player character sprite within the game.
@@ -18,7 +20,7 @@ public class Player {
 	//Array of projectiles (bullets)
 	private ArrayList<Projectile> projectiles;
 	
-	private Rect bottom,head,leftHand,rightHand,check;
+	private static Rect bottom,head,leftHand,rightHand,check;
 
 	
 	//Location and speed variables
@@ -60,7 +62,7 @@ public class Player {
         head = new Rect(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
         leftHand = new Rect(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
         rightHand = new Rect(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
-        check = new Rect(centerX, centerY, centerX + 120, centerY +180);
+        check = new Rect(centerX - 40, centerY - 40, centerX + 90, centerY +100);
 		
 		bg1 = GameScreen.getBg1();
 		bg2 = GameScreen.getBg2();
@@ -91,7 +93,7 @@ public class Player {
         head = new Rect(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
         leftHand = new Rect(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
         rightHand = new Rect(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
-        check = new Rect(centerX, centerY, centerX + 120, centerY +180);
+        check = new Rect(centerX - 40, centerY - 40, centerX + 90, centerY +100);
 		
 		lookup = false;
 		movingLeft = false;
@@ -297,44 +299,44 @@ public class Player {
 		return projectiles;
 	}
 	
-	public  Rect getBottom() {
+	public static Rect getBottom() {
 		return bottom;
 	}
 
-	public  void setBottom(Rect rect) {
-        this.bottom = rect;
+	public static void setBottom(Rect rect) {
+        Player.bottom = rect;
 	}
 
-	public Rect getHead() {
+	public static Rect getHead() {
 		return head;
 	}
 
-	public void setHead(Rect head) {
-        this.head = head;
+	public static void setHead(Rect head) {
+        Player.head = head;
 	}
 
-	public Rect getLeftHand() {
+	public static Rect getLeftHand() {
 		return leftHand;
 	}
 
-	public void setLeftHand(Rect leftHand) {
-        this.leftHand = leftHand;
+	public static void setLeftHand(Rect leftHand) {
+        Player.leftHand = leftHand;
 	}
 
-	public Rect getRightHand() {
+	public static Rect getRightHand() {
 		return rightHand;
 	}
 
-	public void setRightHand(Rect rightHand) {
-        this.rightHand = rightHand;
+	public static void setRightHand(Rect rightHand) {
+        Player.rightHand = rightHand;
 	}
 	
-	public Rect getCheck() {
+	public static Rect getCheck() {
 		return check;
 	}
 
-	public void setCheck(Rect check) {
-		this.check = check;
+	public static void setCheck(Rect check) {
+        Player.check = check;
 	}
 
 	/**Used on every game loop to make sure what is rendered on the screen
@@ -380,7 +382,7 @@ public class Player {
         head.set(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
         leftHand.set(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
         rightHand.set(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
-        check.set(centerX, centerY, centerX + 120, centerY +180);
+        check.set(centerX - 40, centerY - 40, centerX + 90, centerY +100);
         
 	}
 	

@@ -133,6 +133,18 @@ public class AndroidGraphics implements Graphics {
         canvas.drawRect(x, y, width, height, paint);
     }
 
+    /**Render a single rectangle of the screen that's already in the app
+     *
+     * @param r retangle variable to render
+     * @param colour colour to render
+     */
+    @Override
+    public void drawRect(Rect r, int colour){
+        paint.setColor(colour);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(r, paint);
+    }
+
     /**Draw the entire screen with a bitmap ARGB colour
      *
      * @param a alpha colour channel (0..255)

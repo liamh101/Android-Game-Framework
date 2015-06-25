@@ -58,10 +58,10 @@ public class Tile {
 		speedX = (byte) (bg.getSpeedX()*5);
 		tileX += speedX;
 		r.set(tileX, tileY, tileX+40, tileY+40);
-		
-		if( r.intersect(GameScreen.getPlayer().getCheck()) &&  type != 0){
-			checkVerticalCollision(GameScreen.getPlayer().getBottom(), GameScreen.getPlayer().getHead());
-			checkSideCollision(GameScreen.getPlayer().getLeftHand(), GameScreen.getPlayer().getRightHand());
+
+		if (Rect.intersects(r, Player.getCheck()) && type != 0) {
+			checkVerticalCollision(Player.getBottom(), Player.getHead());
+			checkSideCollision(Player.getLeftHand(), Player.getRightHand());
 			Log.d("CollisionCheck", "Checking Collison");
 		}
 	}
@@ -99,7 +99,7 @@ public class Tile {
 			
 		}
 		
-		if(r.intersect(rbot)){
+		if (Rect.intersects(r,rbot) && type != 0){
 			Log.d("CollisionCheck", "Hit Floor");
 			player.setJumped(false);
 			player.setSpeedY((byte) 0);
