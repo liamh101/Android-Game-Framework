@@ -166,8 +166,13 @@ public class GameScreen extends Screen {
                     // Move right.
                     player.moveRight();
                     player.setMovingRight(true);
-
                 }
+
+                bg1.update();
+                bg2.update();
+                animate();
+                updateTiles();
+
             }
         }
 
@@ -185,6 +190,8 @@ public class GameScreen extends Screen {
         paintTiles(g);
 
         g.drawImage(currentSprite, player.getCenterX(), player.getCenterY());
+        //g.drawRect(player.getCenterX(), player.getCenterY(), player.getCenterX() + 120, player.getCenterY() +180, Color.WHITE);
+
 
         if(state == GameState.Ready)
             drawReadyUI();
@@ -193,8 +200,10 @@ public class GameScreen extends Screen {
     private void paintTiles(Graphics g){
         for(int i = 0; i < tilearray.size(); i++){
             Tile t = (Tile) tilearray.get(i);
-            if(t.getType() != 0)
+            if(t.getType() != 0) {
                 g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
+                g.drawRect(t.getTileX(), t.getTileY(), t.getTileX()+40, t.getTileY()+40, Color.WHITE);
+            }
         }
     }
 
@@ -203,6 +212,19 @@ public class GameScreen extends Screen {
 
         g.drawARGB(155,0,0,0);
         g.drawString("Tap to Start", 400, 240, paint);
+    }
+
+    private void updateTiles() {
+
+        for (int i = 0; i < tilearray.size(); i++) {
+            Tile t = (Tile) tilearray.get(i);
+            t.update();
+        }
+
+    }
+
+    public void animate(){
+        animP.update(10);
     }
 
     @Override

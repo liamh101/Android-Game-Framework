@@ -1,3 +1,5 @@
+package com.example.liam.androidframework.exampleGame;
+
 /**Class manages the sprites for the background
  * 
  * @author Liam

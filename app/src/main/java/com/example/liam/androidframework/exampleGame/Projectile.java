@@ -1,4 +1,8 @@
-import java.awt.Rectangle;
+package com.example.liam.androidframework.exampleGame;
+
+
+import android.graphics.Rect;
+
 /***
  *  Used by the Player to attack the enemy.
  * 
@@ -10,7 +14,7 @@ public class Projectile {
 
 	private int x, y, speedX,limit, direction; 
 	private boolean visible, enemy;
-	private Rectangle hitbox; 
+	private Rect hitbox;
 	
 	public Projectile(){
 		x = 0;
@@ -19,7 +23,7 @@ public class Projectile {
 		limit = 800;
 		visible = true;
 		
-		hitbox = new Rectangle(0, 0, 0, 0);
+		hitbox = new Rect(0, 0, 0, 0);
 	}
 	
 	public Projectile(int startX, int startY, int direction){
@@ -31,7 +35,7 @@ public class Projectile {
 		limit = 800;
 		visible = true;
 		
-		hitbox = new Rectangle(0, 0, 0, 0);
+		hitbox = new Rect(0, 0, 0, 0);
 	}
 	
 	public Projectile(int startX, int startY, int direction, int speedX, int limit){
@@ -42,7 +46,7 @@ public class Projectile {
 		this.speedX = speedX;
 		this.limit = limit;
 		
-		hitbox = new Rectangle(0, 0, 0, 0);
+		hitbox = new Rect(0, 0, 0, 0);
 	}
 	
 	public void update(){
@@ -55,7 +59,7 @@ public class Projectile {
 		else if (direction == 3)
 			y -= speedX;
 		
-		hitbox.setBounds(x,y, 10, 5);
+		hitbox.set(x, y, 10, 5);
 		
 		if(x > limit){
 			visible = false;
@@ -66,11 +70,11 @@ public class Projectile {
 			checkCollision();
 		}
 	}
-	
-	private void checkCollision(){
-		if(hitbox.intersects(bootloader.getFlyingEmemy().getHitbox()) && !enemy){
+
+	private void checkCollision() {
+		if (hitbox.intersect(GameScreen.getEn1().getHitbox()) && !enemy){
 			
-			Enemy en = bootloader.getFlyingEmemy();
+			Enemy en = GameScreen.getEn1();
 			visible = false;
 			
 			if(en.getCurrentHealth() > 0){
@@ -78,10 +82,10 @@ public class Projectile {
 			}
 			if(en.getCurrentHealth() == 0){
 				en.setCenterX(-100);
-				bootloader.setScore( bootloader.getScore()+5);
+				GameScreen.setScore( GameScreen.getScore()+5);
 			}
-			
-			bootloader.setScore((bootloader.getScore() + 1));
+
+			GameScreen.setScore((GameScreen.getScore() + 1));
 		}
 	}
 
@@ -133,11 +137,11 @@ public class Projectile {
 		this.enemy = enemy;
 	}
 
-	public Rectangle getHitbox() {
+	public Rect getHitbox() {
 		return hitbox;
 	}
 
-	public void setHitbox(Rectangle hitbox) {
+	public void setHitbox(Rect hitbox) {
 		this.hitbox = hitbox;
 	}
 

@@ -1,5 +1,9 @@
-import java.awt.Image;
-import java.awt.Rectangle;
+package com.example.liam.androidframework.exampleGame;
+
+import android.graphics.Rect;
+import android.util.Log;
+
+import com.example.liam.androidframework.framework.Image;
 
 
 public class Tile {
@@ -9,7 +13,7 @@ public class Tile {
 	private Image tileImage;
 	private Player player;
 	private Background bg; 
-	private Rectangle r;
+	private Rect r;
 	
 	/**Custom Constructor that gives a tile within a 2D array a image to render on screen.
 	 * 
@@ -21,23 +25,23 @@ public class Tile {
 		tileX = x * 40; 
 		tileY = y * 40;
 		
-		player = bootloader.getPlayer();
-		bg = bootloader.getBg1();
+		player = GameScreen.getPlayer();
+		bg = GameScreen.getBg1();
 		
 		type = typeInt;
 		
-		r = new Rectangle();
+		r = new Rect();
 		
 		if (type == 1){
-			tileImage = bootloader.getDirtTile();
+			tileImage = Assets.getTileDirt();
 			damage =0;
 		}
 		else if (type == 2){
-			tileImage = bootloader.getOceanTile();
+			tileImage = Assets.getTileGrassDirt();
 			damage =0; 
 		}
 		else if (type == 3){
-			tileImage = bootloader.getSpikeTile();
+			tileImage = Assets.getTileSpike();
 			damage =100;
 		}
 		else {
@@ -53,12 +57,17 @@ public class Tile {
 	public void update() { 
 		speedX = (byte) (bg.getSpeedX()*5);
 		tileX += speedX;
-		r.setBounds(tileX, tileY,40,40);
+		r.set(tileX, tileY, tileX+40, tileY+40);
 		
-		if( r.intersects(Player.getCheck()) &&  type != 0){
-			checkVerticalCollision(Player.getBottom(), Player.getHead());
-			checkSideCollision(Player.getLeftHand(), Player.getRightHand());
+		if( r.intersect(GameScreen.getPlayer().getCheck()) &&  type != 0){
+			checkVerticalCollision(GameScreen.getPlayer().getBottom(), GameScreen.getPlayer().getHead());
+			checkSideCollision(GameScreen.getPlayer().getLeftHand(), GameScreen.getPlayer().getRightHand());
+			Log.d("CollisionCheck", "Checking Collison");
 		}
+	}
+
+	public int getType(){
+		return type;
 	}
 
 	public int getTileX() {
@@ -85,12 +94,13 @@ public class Tile {
 		this.tileImage = tileImage;
 	}
 	
-	public void checkVerticalCollision(Rectangle rbot, Rectangle rtop){
-		if(rtop.intersects(r)){
+	public void checkVerticalCollision(Rect rbot, Rect rtop){
+		if(Rect.intersects(rtop, r)){
 			
 		}
 		
-		if(rbot.intersects(r)){
+		if(r.intersect(rbot)){
+			Log.d("CollisionCheck", "Hit Floor");
 			player.setJumped(false);
 			player.setSpeedY((byte) 0);
 			player.setCenterY(tileY);
@@ -99,21 +109,21 @@ public class Tile {
 		}
 	}
 	
-	public void checkSideCollision(Rectangle rleft, Rectangle rright){
+	public void checkSideCollision(Rect rleft, Rect rright){
 		if(type != 0 ) {
 			
-			if(rleft.intersects(r)) {
+			if(Rect.intersects(rleft,r)) {
 				System.out.println("in left side intersect");
 				player.setCenterX(tileX + 88);
 				player.setSpeedX((byte) 0);
 			}
-		/*	else if (leftFoot.intersects(r)) {
+		/*   else if (leftFoot.intersects(r)) {
 				System.out.println("in left foot intersect");
 				player.setCenterX(tileX);
 				player.setSpeedX(0);
 			} */ 
 			
-			if(rright.intersects(r)) {
+			if(Rect.intersects(rright,r)) {
 				System.out.println("in right side intersect");
 				player.setCenterX(tileX + 10);
 				player.setSpeedX((byte) 0);

@@ -1,4 +1,7 @@
-import java.awt.Rectangle;
+package com.example.liam.androidframework.exampleGame;
+
+import android.graphics.Rect;
+
 import java.util.ArrayList;
 
 /** Class is make to control the player character sprite within the game.
@@ -15,7 +18,7 @@ public class Player {
 	//Array of projectiles (bullets)
 	private ArrayList<Projectile> projectiles;
 	
-	private static Rectangle bottom,head,leftHand,rightHand,check;
+	private Rect bottom,head,leftHand,rightHand,check;
 
 	
 	//Location and speed variables
@@ -41,7 +44,7 @@ public class Player {
 	public Player(){
 		projectiles = new ArrayList<Projectile>();
 		centerX = 100;
-		centerY = 440;
+		centerY = 370;
 		health = 100;
 		speedX = 0;
 		speedY = 0;
@@ -52,14 +55,15 @@ public class Player {
 		ducked = false;
 		readyToFire = true;
 		
-		bottom = new Rectangle(0,0,0,0);
-		head = new Rectangle(0,0,0,0);
-		leftHand = new Rectangle(0,0,0,0);
-		rightHand = new Rectangle(0,0,0,0);
-		check = new Rectangle (0,0,0,0);
+		bottom = new Rect(centerX + 45, centerY + 65, centerX + 20, centerY + 55);
+        bottom = new Rect(centerX + 45, centerY + 65, centerX + 20, centerY + 55);
+        head = new Rect(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
+        leftHand = new Rect(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
+        rightHand = new Rect(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
+        check = new Rect(centerX, centerY, centerX + 120, centerY +180);
 		
-		bg1 = bootloader.getBg1();
-		bg2 = bootloader.getBg2();
+		bg1 = GameScreen.getBg1();
+		bg2 = GameScreen.getBg2();
 	}
 	
 	/**Custom constructor that give custom location, speed and background.
@@ -81,12 +85,13 @@ public class Player {
 		this.jumped = false;
 		this.bg1 = bg1;
 		this.bg2 = bg2;
-		
-		bottom = new Rectangle(0,0,0,0);
-		head = new Rectangle(0,0,0,0);
-		leftHand = new Rectangle(0,0,0,0);
-		rightHand = new Rectangle(0,0,0,0);
-		check = new Rectangle (0,0,0,0);
+
+        bottom = new Rect(centerX + 45, centerY + 65, centerX + 20, centerY + 55);
+        bottom = new Rect(centerX + 45, centerY + 65, centerX + 20, centerY + 55);
+        head = new Rect(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
+        leftHand = new Rect(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
+        rightHand = new Rect(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
+        check = new Rect(centerX, centerY, centerX + 120, centerY +180);
 		
 		lookup = false;
 		movingLeft = false;
@@ -292,44 +297,44 @@ public class Player {
 		return projectiles;
 	}
 	
-	public static Rectangle getBottom() {
+	public  Rect getBottom() {
 		return bottom;
 	}
 
-	public static void setBottom(Rectangle rect) {
-		Player.bottom = rect;
+	public  void setBottom(Rect rect) {
+        this.bottom = rect;
 	}
 
-	public static Rectangle getHead() {
+	public Rect getHead() {
 		return head;
 	}
 
-	public static void setHead(Rectangle head) {
-		Player.head = head;
+	public void setHead(Rect head) {
+        this.head = head;
 	}
 
-	public static Rectangle getLeftHand() {
+	public Rect getLeftHand() {
 		return leftHand;
 	}
 
-	public static void setLeftHand(Rectangle leftHand) {
-		Player.leftHand = leftHand;
+	public void setLeftHand(Rect leftHand) {
+        this.leftHand = leftHand;
 	}
 
-	public static Rectangle getRightHand() {
+	public Rect getRightHand() {
 		return rightHand;
 	}
 
-	public static void setRightHand(Rectangle rightHand) {
-		Player.rightHand = rightHand;
+	public void setRightHand(Rect rightHand) {
+        this.rightHand = rightHand;
 	}
 	
-	public static Rectangle getCheck() {
+	public Rect getCheck() {
 		return check;
 	}
 
-	public static void setCheck(Rectangle check) {
-		Player.check = check;
+	public void setCheck(Rect check) {
+		this.check = check;
 	}
 
 	/**Used on every game loop to make sure what is rendered on the screen
@@ -371,11 +376,11 @@ public class Player {
             centerX = 61;
         }
         
-        bottom.setRect(centerX - 40, centerY - 10, 20, 10);
-        head.setRect(centerX - 35, centerY - 60, 12, 12);
-        leftHand.setRect(centerX - 50, centerY - 42, 10, 20);
-        rightHand.setRect(centerX - 16, centerY - 42, 8, 20);
-        check.setRect(centerX - 110, centerY - 110, 180, 180);
+        bottom.set(centerX + 45, centerY + 65, centerX + 20, centerY + 55);
+        head.set(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
+        leftHand.set(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
+        rightHand.set(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
+        check.set(centerX, centerY, centerX + 120, centerY +180);
         
 	}
 	
