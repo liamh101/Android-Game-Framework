@@ -43,7 +43,7 @@ public class Player {
 	public Player(){
 		projectiles = new ArrayList<Projectile>();
 		centerX = 100;
-		centerY = 440;
+		centerY = 370;
 		health = 100;
 		speedX = 0;
 		speedY = 0;

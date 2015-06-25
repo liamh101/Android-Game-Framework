@@ -153,6 +153,10 @@ public class GameScreen extends Screen {
         }
     }
 
+    public void animate(){
+        animP.update(10);
+    }
+
     private void drawReadyUI(){
         Graphics g = game.getGraphics();
 
