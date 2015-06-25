@@ -1,8 +1,8 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.media.SoundPool;
 
-import com.example.liam.androidframework.framework.Sound;
+import com.example.liam.framework.Sound;
 
 /**
  * Created by Liam on 18/06/2015.

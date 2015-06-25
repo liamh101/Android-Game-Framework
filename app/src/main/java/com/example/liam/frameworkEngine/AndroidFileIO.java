@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,7 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 
-import com.example.liam.androidframework.framework.FileIO;
+import com.example.liam.framework.FileIO;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

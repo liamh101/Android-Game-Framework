@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.framework;
+package com.example.liam.framework;
 
 /**
  * Created by Liam on 17/06/2015.

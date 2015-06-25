@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
@@ -6,9 +6,9 @@ import android.content.res.AssetManager;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
-import com.example.liam.androidframework.framework.Audio;
-import com.example.liam.androidframework.framework.Music;
-import com.example.liam.androidframework.framework.Sound;
+import com.example.liam.framework.Audio;
+import com.example.liam.framework.Music;
+import com.example.liam.framework.Sound;
 
 import java.io.IOException;
 

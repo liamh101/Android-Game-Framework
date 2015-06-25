@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -51,7 +51,7 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable  {
         long startTime = System.nanoTime();
         //If game isn't paused
         while(running){
-            if(holder.getSurface().isValid())
+            if(!holder.getSurface().isValid())
                 continue;
 
             //Deltatime used to keep consistent game movement without making the game unplayable

@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -7,8 +7,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.example.liam.androidframework.framework.Graphics;
-import com.example.liam.androidframework.framework.Image;
+import com.example.liam.framework.Graphics;
+import com.example.liam.framework.Image;
 
 import java.io.IOException;
 import java.io.InputStream;

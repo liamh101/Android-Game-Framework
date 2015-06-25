@@ -1,9 +1,9 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 
-import com.example.liam.androidframework.framework.Music;
+import com.example.liam.framework.Music;
 
 import java.io.IOException;
 

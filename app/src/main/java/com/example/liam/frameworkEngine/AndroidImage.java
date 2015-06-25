@@ -1,9 +1,9 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.graphics.Bitmap;
 
-import com.example.liam.androidframework.framework.Graphics;
-import com.example.liam.androidframework.framework.Image;
+import com.example.liam.framework.Graphics;
+import com.example.liam.framework.Image;
 
 /**
  * Created by Liam on 18/06/2015.

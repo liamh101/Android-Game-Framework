@@ -1,4 +1,4 @@
-package com.example.liam.androidframework.frameworkEngine;
+package com.example.liam.frameworkEngine;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,12 +9,12 @@ import android.os.PowerManager;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.liam.androidframework.framework.Audio;
-import com.example.liam.androidframework.framework.FileIO;
-import com.example.liam.androidframework.framework.Game;
-import com.example.liam.androidframework.framework.Graphics;
-import com.example.liam.androidframework.framework.Input;
-import com.example.liam.androidframework.framework.Screen;
+import com.example.liam.framework.Audio;
+import com.example.liam.framework.FileIO;
+import com.example.liam.framework.Game;
+import com.example.liam.framework.Graphics;
+import com.example.liam.framework.Input;
+import com.example.liam.framework.Screen;
 
 /**
  * Created by Liam on 17/06/2015.
