@@ -1,19 +1,15 @@
-package com.example.liam.androidframework.exampleGame;
-
-import android.graphics.Rect;
-
-import com.example.liam.androidframework.framework.Image;
-
+import java.awt.Image;
+import java.awt.Rectangle;
 
 
 public class Tile {
 
-	private int tileX, tileY, type, damage, pass;
+	private int tileX, tileY, type, damage;
 	private byte speedX;
 	private Image tileImage;
 	private Player player;
 	private Background bg; 
-	private Rect r;
+	private Rectangle r;
 	
 	/**Custom Constructor that gives a tile within a 2D array a image to render on screen.
 	 * 
@@ -25,46 +21,27 @@ public class Tile {
 		tileX = x * 40; 
 		tileY = y * 40;
 		
-		player = GameScreen.getPlayer();
-		bg = GameScreen.getBg1();
+		player = bootloader.getPlayer();
+		bg = bootloader.getBg1();
 		
 		type = typeInt;
 		
-		r = new Rect();
+		r = new Rectangle();
 		
 		if (type == 1){
-			tileImage = Assets.getTileDirt();
-			pass = 0;
+			tileImage = bootloader.getDirtTile();
 			damage =0;
 		}
 		else if (type == 2){
-			tileImage = Assets.getTileGrassDirt();
-			pass = 0;
+			tileImage = bootloader.getOceanTile();
 			damage =0; 
 		}
 		else if (type == 3){
-			tileImage = Assets.getTileWater();
-			pass = 1;
-			damage = 100;
+			tileImage = bootloader.getSpikeTile();
+			damage =100;
 		}
-		else if (type == 4){
-			tileImage =Assets.getTileSpike();
-			pass = 1;
-			//damage =100;
-		}
-		/*else if (type == 5){
-			tileImage = bootloader.getSpikeTileCeiling();
-			pass = 0;
-			//damage =100;
-		}
-		else if (type == 9){
-			tileImage = bootloader.getDecoGrassTile();
-			pass = 1;
-			damage = 0;
-		}*/
 		else {
 			type = 0;
-			pass = 1;
 			damage =0;
 		}
 		
@@ -76,9 +53,9 @@ public class Tile {
 	public void update() { 
 		speedX = (byte) (bg.getSpeedX()*5);
 		tileX += speedX;
-		r.set(tileX, tileY, 40, 40);
+		r.setBounds(tileX, tileY,40,40);
 		
-		if( r.intersect(Player.getCheck()) &&  type != 0){
+		if( r.intersects(Player.getCheck()) &&  type != 0){
 			checkVerticalCollision(Player.getBottom(), Player.getHead());
 			checkSideCollision(Player.getLeftHand(), Player.getRightHand());
 		}
@@ -107,34 +84,25 @@ public class Tile {
 	public void setTileImage(Image tileImage) {
 		this.tileImage = tileImage;
 	}
-
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
-	public void checkVerticalCollision(Rect rbot, Rect rtop){
-		if(pass == 0){		
-			if(rtop.intersect(r)){
+	
+	public void checkVerticalCollision(Rectangle rbot, Rectangle rtop){
+		if(rtop.intersects(r)){
 			
-			}
+		}
 		
-			if(rbot.intersect(r)){
-				player.setJumped(false);
-				player.setSpeedY((byte) 0);
-				player.setCenterY(tileY);
-				player.setHealth(player.getHealth() - damage);
+		if(rbot.intersects(r)){
+			player.setJumped(false);
+			player.setSpeedY((byte) 0);
+			player.setCenterY(tileY);
+			player.setHealth(player.getHealth() - damage);
 
-			}
 		}
 	}
-	public void checkSideCollision(Rect rleft, Rect rright){
-		if(pass == 0 ) {
+	
+	public void checkSideCollision(Rectangle rleft, Rectangle rright){
+		if(type != 0 ) {
 			
-			if(rleft.intersect(r)) {
+			if(rleft.intersects(r)) {
 				System.out.println("in left side intersect");
 				player.setCenterX(tileX + 88);
 				player.setSpeedX((byte) 0);
@@ -145,7 +113,7 @@ public class Tile {
 				player.setSpeedX(0);
 			} */ 
 			
-			if(rright.intersect(r)) {
+			if(rright.intersects(r)) {
 				System.out.println("in right side intersect");
 				player.setCenterX(tileX + 10);
 				player.setSpeedX((byte) 0);

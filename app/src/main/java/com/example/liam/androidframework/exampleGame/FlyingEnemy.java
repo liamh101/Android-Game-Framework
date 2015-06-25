@@ -1,5 +1,3 @@
-package com.example.liam.androidframework.exampleGame;
-
 /***
  * Sub class of Enemy used to fly. 
  * 
@@ -13,7 +11,7 @@ public class FlyingEnemy extends Enemy {
 	public FlyingEnemy(int centerX, int centerY) {
 		setCenterX(centerX);
 		setCenterY(centerY);
-		setBg(GameScreen.getBg1());
+		setBg(bootloader.getBg1());
 		
 		savedX = centerX;
 		savedY = centerY;

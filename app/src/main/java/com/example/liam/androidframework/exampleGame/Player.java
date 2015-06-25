@@ -1,6 +1,4 @@
-package com.example.liam.androidframework.exampleGame;
-
-import android.graphics.Rect;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 /** Class is make to control the player character sprite within the game.
@@ -17,7 +15,7 @@ public class Player {
 	//Array of projectiles (bullets)
 	private ArrayList<Projectile> projectiles;
 	
-	private static Rect bottom,head,leftHand,rightHand,check;
+	private static Rectangle bottom,head,leftHand,rightHand,check;
 
 	
 	//Location and speed variables
@@ -43,7 +41,7 @@ public class Player {
 	public Player(){
 		projectiles = new ArrayList<Projectile>();
 		centerX = 100;
-		centerY = 370;
+		centerY = 440;
 		health = 100;
 		speedX = 0;
 		speedY = 0;
@@ -54,14 +52,14 @@ public class Player {
 		ducked = false;
 		readyToFire = true;
 		
-		bottom = new Rect(0,0,0,0);
-		head = new Rect(0,0,0,0);
-		leftHand = new Rect(0,0,0,0);
-		rightHand = new Rect(0,0,0,0);
-		check = new Rect (0,0,0,0);
+		bottom = new Rectangle(0,0,0,0);
+		head = new Rectangle(0,0,0,0);
+		leftHand = new Rectangle(0,0,0,0);
+		rightHand = new Rectangle(0,0,0,0);
+		check = new Rectangle (0,0,0,0);
 		
-		bg1 = GameScreen.getBg1();
-		bg2 = GameScreen.getBg2();
+		bg1 = bootloader.getBg1();
+		bg2 = bootloader.getBg2();
 	}
 	
 	/**Custom constructor that give custom location, speed and background.
@@ -84,11 +82,11 @@ public class Player {
 		this.bg1 = bg1;
 		this.bg2 = bg2;
 		
-		bottom = new Rect(0,0,0,0);
-		head = new Rect(0,0,0,0);
-		leftHand = new Rect(0,0,0,0);
-		rightHand = new Rect(0,0,0,0);
-		check = new Rect(0,0,0,0);
+		bottom = new Rectangle(0,0,0,0);
+		head = new Rectangle(0,0,0,0);
+		leftHand = new Rectangle(0,0,0,0);
+		rightHand = new Rectangle(0,0,0,0);
+		check = new Rectangle (0,0,0,0);
 		
 		lookup = false;
 		movingLeft = false;
@@ -294,43 +292,43 @@ public class Player {
 		return projectiles;
 	}
 	
-	public static Rect getBottom() {
+	public static Rectangle getBottom() {
 		return bottom;
 	}
 
-	public static void setBottom(Rect rect) {
+	public static void setBottom(Rectangle rect) {
 		Player.bottom = rect;
 	}
 
-	public static Rect getHead() {
+	public static Rectangle getHead() {
 		return head;
 	}
 
-	public static void setHead(Rect head) {
+	public static void setHead(Rectangle head) {
 		Player.head = head;
 	}
 
-	public static Rect getLeftHand() {
+	public static Rectangle getLeftHand() {
 		return leftHand;
 	}
 
-	public static void setLeftHand(Rect leftHand) {
+	public static void setLeftHand(Rectangle leftHand) {
 		Player.leftHand = leftHand;
 	}
 
-	public static Rect getRightHand() {
+	public static Rectangle getRightHand() {
 		return rightHand;
 	}
 
-	public static void setRightHand(Rect rightHand) {
+	public static void setRightHand(Rectangle rightHand) {
 		Player.rightHand = rightHand;
 	}
 	
-	public static Rect getCheck() {
+	public static Rectangle getCheck() {
 		return check;
 	}
 
-	public static void setCheck(Rect check) {
+	public static void setCheck(Rectangle check) {
 		Player.check = check;
 	}
 
@@ -373,11 +371,11 @@ public class Player {
             centerX = 61;
         }
         
-        bottom.set(centerX - 40, centerY - 10, 20, 10);
-        head.set(centerX - 35, centerY - 60, 12, 12);
-        leftHand.set(centerX - 50, centerY - 42, 10, 20);
-        rightHand.set(centerX - 16, centerY - 42, 8, 20);
-        check.set(centerX - 110, centerY - 110, 180, 180);
+        bottom.setRect(centerX - 40, centerY - 10, 20, 10);
+        head.setRect(centerX - 35, centerY - 60, 12, 12);
+        leftHand.setRect(centerX - 50, centerY - 42, 10, 20);
+        rightHand.setRect(centerX - 16, centerY - 42, 8, 20);
+        check.setRect(centerX - 110, centerY - 110, 180, 180);
         
 	}
 	

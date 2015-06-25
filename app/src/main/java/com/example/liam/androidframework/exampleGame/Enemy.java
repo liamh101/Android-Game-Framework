@@ -1,6 +1,4 @@
-package com.example.liam.androidframework.exampleGame;
-
-import android.graphics.Rect;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 /**Superclass for managing the all enemy characters
@@ -14,7 +12,7 @@ public class Enemy {
 	private byte speedX, movementSpeed;
 	private ArrayList<Projectile> projectiles;
 	private Background bg;
-	private Rect hitbox;
+	private Rectangle hitbox; 
 	
 	
 	public Enemy(){
@@ -24,7 +22,7 @@ public class Enemy {
 		centerY = 0;
 		maxHealth = 100; 
 		currentHealth = 100;
-		hitbox = new Rect(0,0,0,0);
+		hitbox = new Rectangle(0,0,0,0);
 	}
 	
 	public void restart(){
@@ -41,15 +39,15 @@ public class Enemy {
 		centerX += speedX;
 		speedX = (byte) (bg.getSpeedX()*5);
 		speedX = (byte) (bg.getSpeedX() * 5 + movementSpeed);
-		hitbox.set(centerX - 49, centerY - 49, 64, 64);
+		hitbox.setBounds(centerX-49 , centerY-49, 64, 64);
 		
-		if(hitbox.intersect(Player.getCheck())){
+		if(hitbox.intersects(Player.getCheck())){
 			checkCollision();
 		}
 	}
 	
 	private void checkCollision(){
-		if(hitbox.intersect(Player.getBottom())|| hitbox.intersect(Player.getHead()) || hitbox.intersect(Player.getLeftHand()) || hitbox.intersect(Player.getRightHand())){
+		if(hitbox.intersects(Player.getBottom())|| hitbox.intersects(Player.getHead()) || hitbox.intersects(Player.getLeftHand()) || hitbox.intersects(Player.getRightHand())){
 			System.out.println("collision");
 		}
 	}
@@ -58,11 +56,11 @@ public class Enemy {
 		
 		if (centerX < -95 || centerX > 810) 
 			movementSpeed = 0;
-		else if (Math.abs(GameScreen.getPlayer().getCenterX() - centerX) < 5)
+		else if (Math.abs(bootloader.getPlayer().getCenterX() - centerX) < 5)
 			movementSpeed = 0;
 		else {
 			
-			if(GameScreen.getPlayer().getCenterX() >= centerX)
+			if(bootloader.getPlayer().getCenterX() >= centerX)
 				movementSpeed = 3;
 			else
 				movementSpeed = -2;
@@ -142,12 +140,12 @@ public class Enemy {
 		this.bg = bg;
 	}
 	
-	public Rect getHitbox() {
+	public Rectangle getHitbox() {
 		return hitbox;
 	}
 
 
-	public void setHitbox(Rect hitbox) {
+	public void setHitbox(Rectangle hitbox) {
 		this.hitbox = hitbox;
 	}
 

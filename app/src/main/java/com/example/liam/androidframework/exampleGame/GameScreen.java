@@ -118,6 +118,9 @@ public class GameScreen extends Screen {
 
         if(state == GameState.Ready)
             updateReady(touchEvents);
+        if(state == GameState.Running)
+            updateRunning(touchEvents, deltaTime);
+
 
 
 
@@ -126,7 +129,49 @@ public class GameScreen extends Screen {
     public void updateReady(List<Input.TouchEvent> touchEvents){
         if(touchEvents.size() > 0)
             state = GameState.Running;
+    }
 
+    public void updateRunning(List<Input.TouchEvent> touchEvents, float deltaTime){
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++){
+            Input.TouchEvent event = touchEvents.get(i);
+
+            if(event.type == Input.TouchEvent.TOUCH_DOWN){
+
+                if (inBounds(event, 0, 285, 65, 65)) {
+                    player.jump();
+                    currentSprite = animP.getImage();
+                    player.setDucked(false);
+                }
+
+                else if (inBounds(event, 0, 350, 65, 65)) {
+
+                    if (player.isDucked() == false && player.isJumped() == false
+                            && player.isReadyToFire()) {
+                        player.shoot();
+                    }
+                }
+
+                else if (inBounds(event, 0, 415, 65, 65)
+                        && player.isJumped() == false) {
+                    currentSprite = Assets.getPlayer1();
+                    player.setDucked(true);
+                    player.setSpeedX((byte)0);
+
+                }
+
+                if (event.x > 400) {
+                    // Move right.
+                    player.moveRight();
+                    player.setMovingRight(true);
+
+                }
+            }
+        }
+
+        player.update();
 
 
     }
@@ -182,6 +227,13 @@ public class GameScreen extends Screen {
     @Override
     public void backButton() {
 
+    }
+
+    private boolean inBounds(Input.TouchEvent event, int x, int y, int width, int height){
+        if(event.x > x && event.x < x + width - 1 && event.y > y && event.y < y + height - 1)
+            return true;
+        else
+            return false;
     }
 
     public static Background getBg1() {
