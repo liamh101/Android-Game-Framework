@@ -40,6 +40,7 @@ public class GameScreen extends Screen {
     public GameScreen(Game game){
         super(game);
 
+        tilearray = new ArrayList<Tile>();
         bg1 = new Background(0,0);
         bg2 = new Background(2160,0);
         player = new Player();
@@ -56,6 +57,8 @@ public class GameScreen extends Screen {
         animP.addFrame(character2, 50);
 
         currentSprite = animP.getImage();
+
+        loadMap();
 
         // Defining a paint object
         paint = new Paint();
@@ -80,7 +83,7 @@ public class GameScreen extends Screen {
 
         Scanner reader = new Scanner (ExampleGame.getMap());
 
-        while (true) {
+        while (reader.hasNextLine()) {
             String line = reader.nextLine();
 
             if( line == null) {
@@ -145,7 +148,7 @@ public class GameScreen extends Screen {
     private void paintTiles(Graphics g){
         for(int i = 0; i < tilearray.size(); i++){
             Tile t = (Tile) tilearray.get(i);
-            if(t.getType() == 0)
+            if(t.getType() != 0)
                 g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
         }
     }
