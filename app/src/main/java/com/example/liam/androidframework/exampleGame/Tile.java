@@ -57,12 +57,14 @@ public class Tile {
 	public void update() { 
 		speedX = (byte) (bg.getSpeedX()*5);
 		tileX += speedX;
-		r.set(tileX, tileY, tileX+40, tileY+40);
+		r.set(tileX, tileY -10, tileX+40, tileY+40);
 
-		if (Rect.intersects(r, Player.getCheck()) && type != 0) {
+		//System.out.println("Bottom Hitbox" + " " + Player.getBottom().top + " " + Player.getBottom().bottom + " " + Player.getBottom().left + " " + Player.getBottom().right);
+
+		if (Rect.intersects(Player.getCheck(), r) && type != 0) {
 			checkVerticalCollision(Player.getBottom(), Player.getHead());
 			checkSideCollision(Player.getLeftHand(), Player.getRightHand());
-			Log.d("CollisionCheck", "Checking Collison");
+			//Log.d("CollisionCheck", "Checking Collision");
 		}
 	}
 
@@ -95,18 +97,23 @@ public class Tile {
 	}
 	
 	public void checkVerticalCollision(Rect rbot, Rect rtop){
-		if(Rect.intersects(rtop, r)){
-			
-		}
-		
-		if (Rect.intersects(r,rbot) && type != 0){
-			Log.d("CollisionCheck", "Hit Floor");
-			player.setJumped(false);
-			player.setSpeedY((byte) 0);
-			player.setCenterY(tileY);
-			player.setHealth(player.getHealth() - damage);
 
-		}
+        if(type != 0){
+            if(Rect.intersects(rtop, r)){
+                Log.d("CollisionCheck", "Hit Head");
+            }
+
+            System.out.println("bottom hit box intersects " + Rect.intersects(rbot, r));
+
+            if (Rect.intersects(rbot, r)){
+                Log.d("CollisionCheck", "Hit Floor");
+                player.setJumped(false);
+                player.setSpeedY((byte) 0);
+                player.setCenterY(tileY - 62);
+                player.setHealth(player.getHealth() - damage);
+            }
+        }
+
 	}
 	
 	public void checkSideCollision(Rect rleft, Rect rright){
@@ -114,7 +121,7 @@ public class Tile {
 			
 			if(Rect.intersects(rleft,r)) {
 				System.out.println("in left side intersect");
-				player.setCenterX(tileX + 88);
+				player.setCenterX(tileX - 64);
 				player.setSpeedX((byte) 0);
 			}
 		/*   else if (leftFoot.intersects(r)) {
@@ -125,7 +132,7 @@ public class Tile {
 			
 			if(Rect.intersects(rright,r)) {
 				System.out.println("in right side intersect");
-				player.setCenterX(tileX + 10);
+				player.setCenterX(tileX - 10);
 				player.setSpeedX((byte) 0);
 			}
 			

@@ -189,14 +189,14 @@ public class GameScreen extends Screen {
         g.drawImage(Assets.getBackground(), bg2.getBgX(), bg2.getBgY());
         paintTiles(g);
 
-        g.drawRect(Player.getCheck(), Color.BLUE);
+     //   g.drawRect(Player.getCheck(), Color.BLUE);
 
         g.drawImage(currentSprite, player.getCenterX(), player.getCenterY());
 
-        g.drawRect(Player.getBottom(), Color.RED);
-        g.drawRect(Player.getLeftHand(), Color.RED);
-        g.drawRect(Player.getRightHand(), Color.RED);
-        g.drawRect(Player.getHead(), Color.RED);
+     //   g.drawRect(Player.getBottom(), Color.RED);
+     //  g.drawRect(Player.getLeftHand(), Color.RED);
+     //  g.drawRect(Player.getRightHand(), Color.RED);
+     //   g.drawRect(Player.getHead(), Color.RED);
 
 
 
@@ -210,7 +210,7 @@ public class GameScreen extends Screen {
             Tile t = (Tile) tilearray.get(i);
             if(t.getType() != 0) {
                 g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
-                g.drawRect(t.getTileX(), t.getTileY(), t.getTileX()+40, t.getTileY()+40, Color.WHITE);
+                //g.drawRect(t.getTileX(), t.getTileY(), t.getTileX()+40, t.getTileY()+40, Color.WHITE);
             }
         }
     }
