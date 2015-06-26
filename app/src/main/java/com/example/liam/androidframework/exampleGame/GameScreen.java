@@ -18,10 +18,9 @@ import java.util.Scanner;
  */
 public class GameScreen extends Screen {
 
-    private Image currentSprite, character, character2, character3, characterJ, characterD,flyingEnemy,flyingEnemy2,flyingEnemy3;
+    private Image currentSprite, character, character2, character3, characterJ, characterD;
     private Animation animP, animE;
 
-    private Thread thread;
     private static Player player;
     private static FlyingEnemy en1;
     private static int score;
@@ -168,15 +167,16 @@ public class GameScreen extends Screen {
                     player.setMovingRight(true);
                 }
 
-                bg1.update();
-                bg2.update();
-                animate();
-                updateTiles();
+
 
             }
         }
 
         player.update();
+        bg1.update();
+        bg2.update();
+        animate();
+        updateTiles();
 
 
     }
@@ -190,7 +190,9 @@ public class GameScreen extends Screen {
         paintTiles(g);
 
         g.drawRect(Player.getCheck(), Color.BLUE);
+
         g.drawImage(currentSprite, player.getCenterX(), player.getCenterY());
+
         g.drawRect(Player.getBottom(), Color.RED);
         g.drawRect(Player.getLeftHand(), Color.RED);
         g.drawRect(Player.getRightHand(), Color.RED);
