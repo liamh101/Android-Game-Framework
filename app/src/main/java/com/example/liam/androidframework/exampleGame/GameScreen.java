@@ -1,5 +1,6 @@
 package com.example.liam.androidframework.exampleGame;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 
@@ -17,6 +18,8 @@ import java.util.Scanner;
  * Created by Liam on 21/06/2015.
  */
 public class GameScreen extends Screen {
+
+    Context context;
 
     private Image currentSprite, character, character2, character3, characterJ;
     private Animation animP;
@@ -37,6 +40,8 @@ public class GameScreen extends Screen {
 
     public GameScreen(Game game){
         super(game);
+
+
 
         Assets.stopMusic();
         Assets.loadLevel1();
@@ -226,7 +231,7 @@ public class GameScreen extends Screen {
         Graphics g = game.getGraphics();
 
         g.drawARGB(155, 0, 0, 0);
-        g.drawString("You are Dead", 400, 240, paint2);
+        g.drawString("You are Dead" , 400, 240, paint2);
         g.drawString("Tap to Restart", 375, 300, paint);
     }
 
