@@ -32,7 +32,7 @@ public class LoadingScreen extends Screen {
         Assets.setTileDirt(g.newImage("Tile1.bmp", Graphics.ImageFormat.RGB565));
         Assets.setTileGrassDirt(g.newImage("Tile2.bmp", Graphics.ImageFormat.RGB565));
         Assets.setTileWater(g.newImage("Tile4.png", Graphics.ImageFormat.ARGB8888));
-        Assets.setTileSpike(g.newImage("Spike.bmp", Graphics.ImageFormat.ARGB8888));
+        Assets.setTileSpike(g.newImage("Spike.png", Graphics.ImageFormat.ARGB8888));
 
         game.setScreen(new MainMenuScreen(game));
     }
