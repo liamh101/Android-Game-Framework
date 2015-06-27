@@ -57,7 +57,7 @@ public class Player {
 		ducked = false;
 		readyToFire = true;
 		
-		bottom = new Rect(centerX + 20, centerY + 65, centerX + 45, centerY + 55);
+		bottom = new Rect(centerX + 20, centerY + 65, centerX + 40, centerY + 55);
         head = new Rect(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
         leftHand = new Rect(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
         rightHand = new Rect(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
@@ -87,7 +87,7 @@ public class Player {
 		this.bg1 = bg1;
 		this.bg2 = bg2;
 
-        bottom = new Rect(centerX + 20, centerY + 65, centerX + 45, centerY + 55);
+        bottom = new Rect(centerX + 20, centerY + 65, centerX + 40, centerY + 55);
         head = new Rect(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
         leftHand = new Rect(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
         rightHand = new Rect(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
@@ -376,7 +376,7 @@ public class Player {
             centerX = 61;
         }
         
-        bottom.set(centerX + 20, centerY + 65, centerX + 45, centerY + 55);
+        bottom.set(centerX + 20, centerY + 65, centerX + 40, centerY + 55);
         head.set(centerX + 25 , centerY + 12, centerX + 38, centerY + 4);
         leftHand.set(centerX + 13, centerY + 42, centerX + 23, centerY +  20);
         rightHand.set(centerX + 50, centerY + 42, centerX + 40, centerY + 20);
