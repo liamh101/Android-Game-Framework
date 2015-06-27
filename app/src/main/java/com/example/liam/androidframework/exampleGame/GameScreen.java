@@ -39,6 +39,8 @@ public class GameScreen extends Screen {
     public GameScreen(Game game){
         super(game);
 
+        Assets.stopMusic();
+
         tilearray = new ArrayList<Tile>();
         bg1 = new Background(0,0);
         bg2 = new Background(2160,0);
@@ -119,6 +121,8 @@ public class GameScreen extends Screen {
             updateReady(touchEvents);
         if(state == GameState.Running)
             updateRunning(touchEvents, deltaTime);
+        if(state == GameState.Dead)
+            updateDead(touchEvents);
 
 
 
@@ -162,7 +166,24 @@ public class GameScreen extends Screen {
         currentSprite = animP.getImage();
         updateTiles();
 
+        if(player.getHealth() < 0)
+            state = GameState.Dead;
 
+
+    }
+
+    public void updateDead(List<Input.TouchEvent> touchEvents){
+        if(touchEvents.size() > 0) {
+            state = GameState.Running;
+            player.restart();
+            bg1.setBgX(0);
+            bg1.setBgY(0);
+            bg2.setBgX(2160);
+            bg2.setBgY(0);
+            tilearray = null;
+            tilearray = new ArrayList<Tile>();
+            loadMap();
+        }
     }
 
     @Override
@@ -187,6 +208,23 @@ public class GameScreen extends Screen {
 
         if(state == GameState.Ready)
             drawReadyUI();
+        if(state == GameState.Dead)
+            drawDeadUI();
+    }
+
+    private void drawReadyUI(){
+        Graphics g = game.getGraphics();
+
+        g.drawARGB(155, 0, 0, 0);
+        g.drawString("Tap to Start", 400, 240, paint);
+    }
+
+    private void drawDeadUI(){
+        Graphics g = game.getGraphics();
+
+        g.drawARGB(155, 0, 0, 0);
+        g.drawString("You are Dead", 400, 240, paint2);
+        g.drawString("Tap to Restart", 375, 300, paint);
     }
 
     private void paintTiles(Graphics g){
@@ -197,13 +235,6 @@ public class GameScreen extends Screen {
                 //g.drawRect(t.getTileX(), t.getTileY(), t.getTileX()+40, t.getTileY()+40, Color.WHITE);
             }
         }
-    }
-
-    private void drawReadyUI(){
-        Graphics g = game.getGraphics();
-
-        g.drawARGB(155,0,0,0);
-        g.drawString("Tap to Start", 400, 240, paint);
     }
 
     private void updateTiles() {

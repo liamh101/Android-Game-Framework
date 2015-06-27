@@ -103,7 +103,7 @@ public class Player {
 	
 	public void restart(){
 		centerX = 100;
-		centerY = 440;
+		centerY = 370;
 		speedX = 0;
 		speedY = 0;
 		health = 100;

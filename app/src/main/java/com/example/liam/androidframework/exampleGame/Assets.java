@@ -19,6 +19,10 @@ public class Assets {
         music.play();
     }
 
+    public static void stopMusic(){
+        music.stop();
+    }
+
     public static Image getMenu() {
         return menu;
     }
