@@ -27,7 +27,8 @@ public class ExampleGame extends AndroidGame {
     public Screen getInitScreen() {
 
         if(firstLoad){
-            Assets.loadTitle(this);
+            Assets.setGame(this);
+            Assets.loadTitle();
             firstLoad = false;
         }
 

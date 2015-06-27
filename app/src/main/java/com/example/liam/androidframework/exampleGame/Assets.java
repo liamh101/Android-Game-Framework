@@ -8,11 +8,11 @@ import com.example.liam.androidframework.framework.Music;
  */
 public class Assets {
     private static Image background, enemy1, enemy2, enemy3, player1, player2, player3, playerJ, playerD, tileDirt, tileGrassDirt, tileWater, tileSpike, loading, menu;
+    private static ExampleGame game;
     private static Music music;
 
 
-    public static void loadTitle(ExampleGame game){
-
+    public static void loadTitle(){
         music = game.getAudio().createMusic("title.mp3");
         music.setVolume(0.85f);
         music.setLooping(false);
@@ -21,6 +21,34 @@ public class Assets {
 
     public static void stopMusic(){
         music.stop();
+    }
+
+    public static void loadLevel1 (){
+
+        music = game.getAudio().createMusic("wily-stage.mp3");
+        music.setVolume(0.85f);
+        music.setLooping(true);
+        music.play();
+    }
+
+    public static void loadGameOver(){
+        music = game.getAudio().createMusic("game-over.mp3");
+        music.setVolume(0.85f);
+        music.setLooping(false);
+        music.play();
+
+    }
+
+    public static void restartMusic(){
+        music.seekBegin();
+    }
+
+    public static ExampleGame getGame() {
+        return game;
+    }
+
+    public static void setGame(ExampleGame game) {
+        Assets.game = game;
     }
 
     public static Image getMenu() {

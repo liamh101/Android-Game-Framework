@@ -18,15 +18,14 @@ import java.util.Scanner;
  */
 public class GameScreen extends Screen {
 
-    private Image currentSprite, character, character2, character3, characterJ, characterD;
-    private Animation animP, animE;
+    private Image currentSprite, character, character2, character3, characterJ;
+    private Animation animP;
 
     private static Player player;
     private static FlyingEnemy en1;
     private static int score;
-    private ArrayList<Tile> tilearray;
+    private ArrayList<Tile> tileArray;
     private static Background bg1, bg2;
-    private boolean debug;
     private GameState state;
 
     Paint paint, paint2;
@@ -40,8 +39,9 @@ public class GameScreen extends Screen {
         super(game);
 
         Assets.stopMusic();
+        Assets.loadLevel1();
 
-        tilearray = new ArrayList<Tile>();
+        tileArray = new ArrayList<Tile>();
         bg1 = new Background(0,0);
         bg2 = new Background(2160,0);
         player = new Player();
@@ -106,7 +106,7 @@ public class GameScreen extends Screen {
                 if(i < line.length()) {
                     char ch = line.charAt(i);
                     Tile t = new Tile(i, j, Character.getNumericValue(ch));
-                    tilearray.add(t);
+                    tileArray.add(t);
                 }
             }
         }
@@ -166,9 +166,11 @@ public class GameScreen extends Screen {
         currentSprite = animP.getImage();
         updateTiles();
 
-        if(player.getHealth() < 0)
+        if(player.getHealth() < 0) {
             state = GameState.Dead;
-
+            Assets.stopMusic();
+            Assets.loadGameOver();
+        }
 
     }
 
@@ -180,8 +182,9 @@ public class GameScreen extends Screen {
             bg1.setBgY(0);
             bg2.setBgX(2160);
             bg2.setBgY(0);
-            tilearray = null;
-            tilearray = new ArrayList<Tile>();
+            tileArray = null;
+            tileArray = new ArrayList<Tile>();
+            Assets.loadLevel1();
             loadMap();
         }
     }
@@ -228,8 +231,8 @@ public class GameScreen extends Screen {
     }
 
     private void paintTiles(Graphics g){
-        for(int i = 0; i < tilearray.size(); i++){
-            Tile t = (Tile) tilearray.get(i);
+        for(int i = 0; i < tileArray.size(); i++){
+            Tile t = (Tile) tileArray.get(i);
             if(t.getType() != 0) {
                 g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY());
                 //g.drawRect(t.getTileX(), t.getTileY(), t.getTileX()+40, t.getTileY()+40, Color.WHITE);
@@ -239,8 +242,8 @@ public class GameScreen extends Screen {
 
     private void updateTiles() {
 
-        for (int i = 0; i < tilearray.size(); i++) {
-            Tile t = (Tile) tilearray.get(i);
+        for (int i = 0; i < tileArray.size(); i++) {
+            Tile t = (Tile) tileArray.get(i);
             t.update();
         }
 
