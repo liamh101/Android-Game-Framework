@@ -57,7 +57,7 @@ public class Tile {
 	public void update() { 
 		speedX = (byte) (bg.getSpeedX()*5);
 		tileX += speedX;
-		r.set(tileX, tileY -10, tileX+40, tileY+40);
+		r.set(tileX - 10, tileY -10, tileX+40, tileY+40);
 
 		//System.out.println("Bottom Hitbox" + " " + Player.getBottom().top + " " + Player.getBottom().bottom + " " + Player.getBottom().left + " " + Player.getBottom().right);
 
@@ -132,7 +132,7 @@ public class Tile {
 			
 			if(Rect.intersects(rright,r)) {
 				System.out.println("in right side intersect");
-				player.setCenterX(tileX - 10);
+				player.setCenterX(tileX - 51);
 				player.setSpeedX((byte) 0);
 			}
 			
