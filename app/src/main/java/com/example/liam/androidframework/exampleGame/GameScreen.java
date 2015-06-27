@@ -139,26 +139,9 @@ public class GameScreen extends Screen {
 
             if(event.type == Input.TouchEvent.TOUCH_DOWN){
 
-                if (inBounds(event, 0, 285, 65, 65)) {
+                if (event.x < 400) {
                     player.jump();
-                    currentSprite = animP.getImage();
                     player.setDucked(false);
-                }
-
-                else if (inBounds(event, 0, 350, 65, 65)) {
-
-                    if (player.isDucked() == false && player.isJumped() == false
-                            && player.isReadyToFire()) {
-                        player.shoot();
-                    }
-                }
-
-                else if (inBounds(event, 0, 415, 65, 65)
-                        && player.isJumped() == false) {
-                    currentSprite = Assets.getPlayer1();
-                    player.setDucked(true);
-                    player.setSpeedX((byte)0);
-
                 }
 
                 if (event.x > 400) {
@@ -176,6 +159,7 @@ public class GameScreen extends Screen {
         bg1.update();
         bg2.update();
         animate();
+        currentSprite = animP.getImage();
         updateTiles();
 
 
